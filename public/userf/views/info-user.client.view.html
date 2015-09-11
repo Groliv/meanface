@@ -1,0 +1,78 @@
+<div data-ng-controller="UsersController">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#page-top">BOOK my FACE</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+
+                    <li class="page-scroll">
+                        <a href="/#!/users">Users list</a>
+                    </li>
+
+                    <li class="page-scroll">
+                        <a href="/#!/publications">Publications</a>
+                    </li>
+
+                    <li class="page-scroll" data-ng-show="!authentication.user">
+                        <a href="/login">Login</a>
+                    </li>
+                    <li class="page-scroll" data-ng-show="!authentication.user">
+                        <a href="/register">Register</a>
+                    </li>
+                    
+                    <li class="page-scroll" data-ng-show="authentication.user">
+                        <a href="/#!/users/{{authentication.user._id}}/infos">My profile</a>
+                    </li>
+                    <li class="page-scroll" data-ng-show="authentication.user">
+                        <a href="/logout">Logout</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <section class="container" data-ng-init="findOne()">
+        <div class="well">
+            <h1 data-ng-bind="authentication.user.username" ></h1>
+            <p><span data-ng-bind="authentication.user.firstname"></span> | <span data-ng-bind="authentication.user.lastname"></span></p>
+            <p data-ng-bind="authentication.user.email"></p>
+            <p data-ng-bind="authentication.user.address"></p>
+            <p data-ng-show="authentication.user.admin">Admin</p>
+                <div class="well">
+                    <a href="/#!/users/{{authentication.user._id}}/edit">Edit -</a> 
+                    <a href="#" data-ng-click="delete();"> Delete your account</a>
+                </div>
+        </div>
+
+            <div class="well" data-ng-repeat="publication in mypublications" >
+            <h1 data-ng-bind="publication.title" ></h1>
+            <p data-ng-bind="publication.content"></p>
+            <div>
+                <a href="/#!/publications/{{publication._id}}/edit">edit - </a>
+                <a href="#" data-ng-click="delete();">delete</a>
+            </div>
+            <small>
+                <em data-ng-bind="publication.created | date:'mediumDate' "></em>
+            </small>
+            <small>
+                 by <em data-ng-bind="publication.author.username"></em>
+            </small>
+        </div>
+    </section>
+</div>

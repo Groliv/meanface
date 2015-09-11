@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		<%=title %>
+	</title>
+
+	<link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://getbootstrap.com/examples/signin/signin.css" rel="stylesheet">
+
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/mean.css" rel="stylesheet">
+    
+    <!-- Custom Fonts -->
+    <link href="css/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+</head>
+<body ng-app="meanface">
+	<nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <a class="navbar-brand" href="/">BOOK my FACE</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Portfolio Grid Section -->
+    <section id="portfolio">
+		<div class="container">
+
+	<% for(var i in messages) { %>
+		<div class="flash">
+			<%= messages[i] %>
+		</div>
+	<% } %>
+
+		<form class="form-signin" action="/login" method="post">
+        	<h2 class="form-signin-heading text-center">Login</h2>
+        
+	        <label for="username" class="sr-only">Username</label>
+	        <input type="text" name="username" id="username" class="form-control" placeholder="Username" required autofocus>
+	        
+	        <label for="password" class="sr-only">Password</label>
+	        <input type="password" name="password" id="password" class="form-control" placeholder="Password">
+
+	        <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+
+			<div class="checkbox">
+	  			<label><input type="checkbox" name="remember" id="remember" ng-model="stayLoggedIn"/>
+	  			Remember me</label>
+			</div>
+      	</form>
+				
+      	<div class="row">
+		    <div class="center-block text-center">
+				<a href="/oauth/facebook">Login with Facebook</a> |
+				<a href="/oauth/twitter">Login with Twitter</a>
+			</div>
+	    </div>
+    </div>
+</div>
+
+</section>
+
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/mean.js"></script>
+    <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+
+    <script type="text/javascript" src="/js/angular/angular.js"></script>
+    <script type="text/javascript" src="/js/angular-route/angular-route.min.js"></script>
+    <script type="text/javascript" src="/js/angular-resource/angular-resource.min.js"></script>
+    <script type="text/javascript" src="/js/angular-flash.js"></script>
+    <script type="text/javascript" src="/js/angular-socket-io/socket.js"></script>
+
+
+    <script type="text/javascript" src="/publications/publications.client.module.js"></script>
+    <script type="text/javascript" src="/publications/controllers/publications.client.controller.js"></script>
+    <script type="text/javascript" src="/publications/services/publications.client.service.js"></script>
+    <script type="text/javascript" src="/publications/config/publications.client.routes.js"></script>
+    
+    <script type="text/javascript" src="/userf/users.client.module.js"></script>
+    <script type="text/javascript" src="/userf/controllers/users.client.controller.js"></script>
+    <script type="text/javascript" src="/userf/services/users.client.service.js"></script>
+    <script type="text/javascript" src="/userf/services/authentication.client.service.js"></script>
+    <script type="text/javascript" src="/userf/config/users.client.routes.js"></script>
+
+    <script type="text/javascript" src="/example/example.client.module.js"></script>
+    <script type="text/javascript" src="/example/controllers/example.client.controller.js"></script>
+    <script type="text/javascript" src="/example/config/example.client.routes.js"></script>
+
+    <script type="text/javascript" src="/application.js"></script>
+</body>
+</html>

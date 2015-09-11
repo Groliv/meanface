@@ -1,0 +1,157 @@
+<div ng-controller="ExampleController">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#!/">BOOK my FACE</a>
+            </div>
+
+
+
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+
+                    <li class="page-scroll">
+                        <a href="/#!/users">Users list</a>
+                    </li>
+
+                    <li class="page-scroll">
+                        <a href="/#!/publications">Publications</a>
+                    </li>
+
+                    <li class="page-scroll" data-ng-show="!authentication.user">
+                        <a href="/login">Login</a>
+                    </li>
+                    <li class="page-scroll" data-ng-show="!authentication.user">
+                        <a href="/register">Register</a>
+                    </li>
+                    
+                    <li class="page-scroll" data-ng-show="authentication.user">
+                        <a href="/#!/users/{{authentication.user._id}}/infos">My profile</a>
+                    </li>
+                    <li class="page-scroll" data-ng-show="authentication.user">
+                        <a href="/logout">Logout</a>
+                    </li>                    
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <!-- Header -->
+    <header data-ng-show="!authentication.user">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <img class="img-responsive" src="" alt="">
+                    <div class="intro-text">
+                        <span class="name">BOOK my FACE</span>
+                        <hr class="star-light">
+                        <span class="skills">Create your custom space for share !</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="success" id="about" data-ng-show="authentication.user">
+        <div class="container">
+	    	<ul>
+				<h1>
+					<li><a href="/#!/publications">List Publications</a></li>
+
+				</h1>
+				
+				<h1>
+					<li><a href="/#!/publications/create">Create Publication</a></li>
+				</h1>
+			</ul>        
+        </div>
+    </section>
+
+    <!-- Portfolio Grid Section -->
+    <section data-ng-show="!authentication.user">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>ALL PUBLICATIONS</h2>
+                    <hr class="star-primary">
+                    <span class="skills-primary">You can share text. Soon images, videos and sounds !</span>
+                </div>
+            </div>
+            <div class="row">
+               <div class="col-lg-12 text-center">
+
+
+               </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="success" id="about" data-ng-show="!authentication.user">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>ALL USERS</h2>
+                    <hr class="star-light">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1">
+                    
+                </div>
+    
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Grid Section -->
+    <section data-ng-show="!authentication.user">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>ALL FRIENDS</h2>
+                    <hr class="star-primary">
+                </div>
+            </div>
+            <div class="row">
+               <div class="col-lg-12 text-center">
+
+
+               </div>
+            </div>
+        </div>
+    </section>
+
+
+        <!-- About Section -->
+    <section class="success" id="about" data-ng-show="!authentication.user">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>ALL PHOTOS GALLERY</h2>
+                    <hr class="star-light">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1">
+                    
+                </div>
+    
+            </div>
+        </div>
+    </section>
+
+
+
+</div>

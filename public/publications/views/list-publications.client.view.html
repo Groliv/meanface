@@ -1,0 +1,85 @@
+<div data-ng-controller="PublicationsController">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#page-top">BOOK my FACE</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                        
+                    <li class="page-scroll">
+                        <a href="/#!/users">Users list</a>
+                    </li>
+
+                    <li class="page-scroll">
+                        <a href="/#!/publications">Publications</a>
+                    </li>
+
+                    <li class="page-scroll" data-ng-show="!authentication.user">
+                        <a href="/login">Login</a>
+                    </li>
+                    <li class="page-scroll" data-ng-show="!authentication.user">
+                        <a href="/register">Register</a>
+                    </li>
+                    
+                    <li class="page-scroll" data-ng-show="authentication.user">
+                        <a href="/#!/users/{{authentication.user._id}}/infos">My profile</a>
+                    </li>
+                    <li class="page-scroll" data-ng-show="authentication.user">
+                        <a href="/logout">Logout</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+<section >
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9" data-ng-init="find()" >
+                <h1>Publications</h1>
+            
+                    <div data-ng-repeat="publication in publications" class = "well" style="list-style:none; margin:0;">
+                        <h3><a data-ng-href="#!/publications/{{publication._id}}" data-ng-bind="publication.title" ></a></h3>
+                        <p data-ng-bind="publication.content"></p>
+                        (<small data-ng-bind="publication.created | date:'short'"></small>)
+                        <br>
+
+                    </div>
+                
+                <div data-ng-hide="!publications || publications.length">
+                    No publications , why don't you <a href="/#!/publications/create">create one</a>?
+                </div>
+            </div>
+            <div class="col-md-3 " >
+                <h3>Notifications</h3>
+              
+                    <div data-ng-repeat="publi in publinotifs">
+                    <div class="well" >
+                    <header>{{entete}}</header>
+                        <h5 data-ng-bind="publi.title"></h5>
+                         <p data-ng-bind="publi.content"></p>
+                        (<small data-ng-bind="publi.created | date:'short'"></small> | by 
+                        <em data-ng-bind="publi.author.username"></em> )
+                     </div>
+                    </div>
+                        
+            </div>
+        </div>
+    </div>
+</section>
+</div>

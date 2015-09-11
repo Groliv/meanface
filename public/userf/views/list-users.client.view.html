@@ -1,0 +1,85 @@
+:!<div data-ng-controller="UsersController">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#page-top">BOOK my FACE</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+
+                    <li class="page-scroll">
+                        <a href="/#!/users">Users list</a>
+                    </li>
+
+                    <li class="page-scroll">
+                        <a href="/#!/publications">Publications</a>
+                    </li>
+
+                    <li class="page-scroll" data-ng-show="!authentication.user">
+                        <a href="/login">Login</a>
+                    </li>
+                    <li class="page-scroll" data-ng-show="!authentication.user">
+                        <a href="/register">Register</a>
+                    </li>
+                    
+                    <li class="page-scroll" data-ng-show="authentication.user">
+                        <a href="/#!/users/{{authentication.user._id}}/infos">My profile</a>
+                    </li>
+                    <li class="page-scroll" data-ng-show="authentication.user">
+                        <a href="/logout">Logout</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <section data-ng-init="find()">
+        <div class="container well">
+        <table class="table table-striped">
+        <h3>Users list</h3>
+            <thead>
+                
+            </thead>
+            <tbody>
+            <tr data-ng-repeat="user in users">
+                 <td><a data-ng-href="#!/users/{{user._id}}" 
+                        data-ng-bind="user.username" ></a>
+                </td>
+                 <td data-ng-bind="user.firstname"></td>
+                 <td data-ng-bind="user.lastname"></td>
+                 <td data-ng-bind="user.email"></td>
+                 <td> 
+                    <!--  <button type="submit" 
+                             class="page-scroll btn btn-primary btn-sm" 
+                             data-ng-click="link_to(users/user._id)" 
+                             name="UserInfos">Infos
+                     </button> -->
+                     <button type="submit"
+                             class="page-scroll btn btn-warning btn-sm" 
+                             data-ng-show="authentication.user.admin" 
+                             data-ng-click="delete(user);" 
+                             name="UserDelete">Delete
+                    </button>
+                </td>
+
+             </tr>
+            </tbody>
+            </table
+            
+        </div>
+    </section>
+</div>

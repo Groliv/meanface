@@ -1,0 +1,75 @@
+<div data-ng-controller="PublicationsController">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#page-top">BOOK my FACE</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+
+                    <li class="page-scroll">
+                        <a href="/#!/users">Users list</a>
+                    </li>
+
+                    <li class="page-scroll">
+                        <a href="/#!/publications">Publications</a>
+                    </li>
+
+                    <li class="page-scroll" data-ng-show="!authentication.user">
+                        <a href="/login">Login</a>
+                    </li>
+                    <li class="page-scroll" data-ng-show="!authentication.user">
+                        <a href="/register">Register</a>
+                    </li>
+                    
+                    <li class="page-scroll" data-ng-show="authentication.user">
+                        <a href="/#!/users/{{authentication.user._id}}/infos">My profile</a>
+                    </li>
+                    <li class="page-scroll" data-ng-show="authentication.user">
+                        <a href="/logout">Logout</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <section data-ng-init="findOne()" class="container">
+        <h1>Edit Publication</h1>
+        <form data-ng-submit="update()" novalidate class="form-signin">
+            <div>
+                <label for="title" class="sr-only">Title</label>
+                <div>
+                    <input type="text" data-ng-model="publication.title" id="title" placeholder="Title" required autofocus class="form-control">
+                </div>
+            </div>
+
+            <div>
+                <label for="content" class="sr-only">Content</label>
+                <div>
+                    <textarea data-ng-model="publication.content" id="content" cols="30" rows="10" placeholder="Content" class="form-control"></textarea>
+                </div>
+            </div>
+
+            <div>
+                <button type="submit" class="btn btn-lg btn-primary btn-block">Update PUBLICATION</button>
+            </div>
+            <div data-ng-show="error">
+                <strong data-ng-bind="error"></strong>
+            </div>
+        </form>
+    </section>
+</div>

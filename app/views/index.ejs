@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BOOK my FACE</title>
+
+
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/mean.css" rel="stylesheet">
+    
+
+    <!-- Custom Fonts -->
+    <link href="css/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+</head>
+<body ng-app="meanface">
+    
+    <section ng-view></section>
+
+
+	<script type="text/javascript">
+	    window.user = <%- user || 'null' %>;
+	</script> 
+
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/mean.js"></script>
+    <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+
+    <script type="text/javascript" src="/js/angular/angular.js"></script>
+    <script type="text/javascript" src="/js/angular-route/angular-route.min.js"></script>
+    <script type="text/javascript" src="/js/angular-resource/angular-resource.min.js"></script>
+    <script type="text/javascript" src="/js/angular-flash.js"></script>
+    <script type="text/javascript" src="/js/angular-socket-io/socket.js"></script>
+
+    <script type="text/javascript" src="/publications/publications.client.module.js"></script>
+    <script type="text/javascript" src="/publications/controllers/publications.client.controller.js"></script>
+    <script type="text/javascript" src="/publications/services/publications.client.service.js"></script>
+    <script type="text/javascript" src="/publications/config/publications.client.routes.js"></script>
+    
+    <script type="text/javascript" src="/userf/users.client.module.js"></script>
+    <script type="text/javascript" src="/userf/controllers/users.client.controller.js"></script>
+    <script type="text/javascript" src="/userf/services/users.client.service.js"></script>
+    <script type="text/javascript" src="/userf/services/authentication.client.service.js"></script>
+    <script type="text/javascript" src="/userf/config/users.client.routes.js"></script>
+
+    <script type="text/javascript" src="/example/example.client.module.js"></script>
+    <script type="text/javascript" src="/example/controllers/example.client.controller.js"></script>
+    <script type="text/javascript" src="/example/config/example.client.routes.js"></script>
+
+
+    <script type="text/javascript" src="/application.js"></script>
+
+</body>
+
+</html>

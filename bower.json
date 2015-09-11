@@ -1,0 +1,14 @@
+{
+  "name": "MEAN_FACE",
+  "version": "0.0.0",
+  "authors": [
+    "Nabil et Oliver"
+  ],
+  "main": "bower.json",
+  "dependencies": {
+    "angular": "1.4.3",
+    "angular-route": "~1.4.3",
+    "angular-flash-alert": "~1.1.1",
+    "angular-socket-io": "~0.7.0"
+  }
+}
